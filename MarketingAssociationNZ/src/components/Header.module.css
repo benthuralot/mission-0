@@ -1,0 +1,141 @@
+.header {
+  width: auto;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 15px;
+  background-color: var(--background);
+  box-shadow: 0px 3px 6px #00000029;
+  position: relative; /* Add position to allow z-index control */
+  z-index: 10; /* Ensure header stays above other content */
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.username {
+  font-size: 12px;
+  font-family: var(--primary-font);
+  color: var(--accent2);
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.navbar {
+  color: var(--accent2);
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 5; /* Set a lower z-index for navbar */
+}
+
+.navbar ul {
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+li {
+  font-size: 12px;
+}
+
+.loginBtn {
+  width: 50px;
+  height: 20px;
+  border: 1px solid var(--accent2);
+  background-color: var(--background);
+  font-size: 10px;
+  color: var(--accent2);
+  margin-left: 15px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 15; /* Set a higher z-index for the hamburger icon */
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent2);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Show hamburger icon on small screens */
+@media (max-width: 425px) {
+  .navbar {
+    display: none; /* Hide navbar by default on small screens */
+  }
+
+  .navbar.show {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--background);
+    font-weight: bold;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 4px;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.3s ease;
+    z-index: 20; /* Set a higher z-index for the dropdown menu */
+  }
+
+  .navbar.show ul {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .navbar.show li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--accent2);
+  }
+
+  .navbar.show li:last-child {
+    border-bottom: none;
+  }
+
+  /* Show hamburger icon */
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Ensure the navbar is always displayed on larger screens */
+@media (min-width: 426px) {
+  .navbar {
+    display: flex; /* Always show navbar on screens larger than 425px */
+  }
+
+  .hamburger {
+    display: none; /* Hide hamburger icon on larger screens */
+  }
+}

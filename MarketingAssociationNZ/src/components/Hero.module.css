@@ -1,0 +1,100 @@
+.heroContainer {
+  height: 80vh;
+  background-image: url("src/assets/Hero.webp");
+  background-position: center;
+  background-size: cover;
+  position: relative; /* Allows absolutely positioned child elements */
+  box-shadow: 0px 5px 6px #00000029;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1; /* Ensure it sits above the image */
+}
+
+.heroTitle {
+  position: absolute;
+  top: 30%; /* Vertically center the text */
+  left: 60px; /* Place the title slightly from the left side */
+  transform: translateY(-50%); /* Adjust the positioning to vertically center */
+  color: var(--background); /* Make the text white for better visibility */
+  font-size: 2rem; /* Adjust font size as needed */
+  max-width: 30%;
+  z-index: 2; /* Ensure it sits above the overlay */
+  text-align:left; /* Center the text inside */
+}
+
+
+.searchbar {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  width: 70%; /* Adjust the width of the search bar as needed */
+  max-width: 500px; /* Optional: limit the maximum width */
+  z-index: 2;
+}
+
+.searchbar input {
+  width: 75%; /* Adjust this to make the input take up most of the space */
+  padding: 8px 12px; /* Add padding to make the input larger */
+  font-size: 16px; /* Adjust the font size if needed */
+  border: none;
+}
+
+.searchbar button {
+  width: 25%; /* Button takes up 25% of the search bar width */
+  padding: 8px; /* Add padding to the button */
+  font-size: 16px; /* Make the font size match the input */
+  color: var(--background);
+  background-color: var(--accent2);
+  border: 1px solid var(--accent2);
+}
+
+@media(max-width: 425px){
+  .heroContainer {
+    height:250px;
+    width:100%;
+    max-width: 414px;
+  }
+  .heroTitle {
+    position: absolute;
+    top: 10%; /* Vertically center the text */
+    left: 20px; /* Place the title slightly from the left side */    
+    color: var(--background); 
+    font-size: 22px; /* Adjust font size as needed */
+    max-width: 70%;
+    z-index: 2; /* Ensure it sits above the overlay */
+    text-align:left; /* Center the text inside */
+  }
+
+  .searchbar {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; 
+  z-index: 2;
+}
+.searchbar input {
+  width: 90%;
+  height: 50px;
+}
+
+.searchbar button {
+  width: 90%; 
+  margin-top: 5px;
+  height: 50px;
+  font-size: 14px;
+}
+
+}
